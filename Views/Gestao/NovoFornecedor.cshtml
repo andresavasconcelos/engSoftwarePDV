@@ -1,0 +1,24 @@
+@model engSoftPDV.DTO.FornecedorDTO;
+
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Nome do Fornecedor</h3>
+<hr>
+<form class="form-horizontal" asp-controller="Fornecedores" asp-action="Salvar" method="POST" >
+    <input type="hidden" asp-for="Id" value="0"> @* não aparece, mas é requerido *@ 
+    
+    <label asp-for="Name">Nome</label>
+    <input type="text" asp-for="Name" class="form-control" placeholder="Nome da Fornecedor">
+    <span asp-validation-for="Name"></span><br />
+
+    <label asp-for="Email">Email</label>
+    <input type="email" asp-for="Email" class="form-control" placeholder="email@fornecedor.com">
+    <span asp-validation-for="Email"></span><br />
+
+    <label asp-for="Tel">Telefone</label>
+    <input type="tel" asp-for="Tel" class="form-control" placeholder="(11) 5555 5555">
+    <span asp-validation-for="Tel" class="danger"></span><br />
+
+    <button class="btn btn-success">Cadastrar</button>
+</form>

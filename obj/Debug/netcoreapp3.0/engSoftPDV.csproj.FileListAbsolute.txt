@@ -77,3 +77,9 @@ C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\bin\Debug
 C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_LayoutAdmin.cshtml.g.cs
 C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\Index.cshtml.g.cs
+C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\Categorias.cshtml.g.cs
+C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\NovaCategoria.cshtml.g.cs
+C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\Fornecedores.cshtml.g.cs
+C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\NovoFornecedor.cshtml.g.cs
+C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\NovoProduto.cshtml.g.cs
+C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\Produtos.cshtml.g.cs

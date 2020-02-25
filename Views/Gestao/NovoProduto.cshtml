@@ -1,0 +1,37 @@
+@model engSoftPDV.DTO.ProdutoDTO;
+
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Nome do Produto</h3>
+<hr>
+<form class="form-horizontal" asp-controller="Produtos" asp-action="Salvar" method="POST" >
+    <input type="hidden" asp-for="Id" value="0">  @* não aparece, mas é requerido *@ 
+    
+    <label asp-for="Name">Nome</label>
+    <input type="text" asp-for="Name" class="form-control" placeholder="Nome do produto">
+    <span asp-validation-for="Name"></span><br>
+    
+    <label asp-for="CategoriaId">Categoria</label>
+    <select class="form-control" asp-for="CategoriaId" asp-items='@(new SelectList(@ViewBag.Categorias, "Id", "Name"))'></select><br/> @*cri uma lista das categorias e será atribuido nome*@
+
+    <label asp-for="FornecedorId">Fornecedor</label>
+    <select class="form-control" asp-for="FornecedorId" asp-items='@(new SelectList(@ViewBag.Fornecedores, "Id", "Name"))'></select><br>
+    
+    <label asp-for="PrecoDeCusto" >Preço de Custo</label>
+    <input class="form-control" asp-for="PrecoDeCusto" type="number" step="any" placeholder="Digite o preço de custo"> @*type number é caracterizado como um numero inteiro, mas como é um numero decimal colocamos esse step para definirmos como um numero natural*@
+    <span asp-validation-for="PrecoDeCusto"></span><br>
+
+    <label asp-for="PrecoDeVenda" >Preço de Venda</label>
+    <input class="form-control" asp-for="PrecoDeVenda" type="number" step="any" placeholder="Digite o preço de venda"> @*type number é caracterizado como um numero inteiro, mas como é um numero decimal colocamos esse step para definirmos como um numero natural*@
+    <span asp-validation-for="PrecoDeVenda"></span><br>
+
+    <label asp-for="Medicao" >Medição</label>
+    <select class="form-control" asp-for="Medicao">
+        <option value="1">Litro</option>
+        <option value="2">Kilo</option>
+        <option value="3">Unidade</option>
+    </select> <br>
+
+    <button class="btn btn-success">Cadastrar</button> 
+</form>

@@ -14344,13 +14344,33 @@
   "RootNamespace": "engSoftPDV",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\index.cshtml",
-      "TargetPath": "Views\\Gestao\\index.cshtml",
+      "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\Index.cshtml",
+      "TargetPath": "Views\\Gestao\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\Produtos.cshtml",
+      "TargetPath": "Views\\Gestao\\Produtos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\NovaCategoria.cshtml",
+      "TargetPath": "Views\\Gestao\\NovaCategoria.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\Fornecedores.cshtml",
+      "TargetPath": "Views\\Gestao\\Fornecedores.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\NovoFornecedor.cshtml",
+      "TargetPath": "Views\\Gestao\\NovoFornecedor.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14369,8 +14389,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\NovoProduto.cshtml",
+      "TargetPath": "Views\\Gestao\\NovoProduto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\Categorias.cshtml",
+      "TargetPath": "Views\\Gestao\\Categorias.cshtml",
       "FileKind": "mvc"
     },
     {
