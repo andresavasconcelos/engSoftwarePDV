@@ -83,3 +83,4 @@ C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug
 C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\NovoFornecedor.cshtml.g.cs
 C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\NovoProduto.cshtml.g.cs
 C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\Produtos.cshtml.g.cs
+C:\Users\andre\Documents\ufabc\Q1_2020\Eng Sofware\projeto1\engSoftPDV\obj\Debug\netcoreapp3.0\Razor\Views\Gestao\EditarCategoria.cshtml.g.cs

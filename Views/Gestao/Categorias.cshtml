@@ -1,4 +1,4 @@
-@model IEnumerable<engSoftPDV.Models.Categoria>
+@model IEnumerable<engSoftPDV.Models.Categoria> // recebo um objeto do tipo categoria DTO
 @{
     Layout = "_LayoutAdmin";
 }
@@ -25,7 +25,8 @@
             <tr>
                 <td>@categoria.Id</td>
                 <td>@categoria.Name</td>
-                <td><button class="btn btn-primary">Editar</button> <button class="btn btn-danger">Deletar</button></td>
+                <td><a href="/Gestao/EditarCategoria/@categoria.Id" class="btn btn-primary">Editar</a> <button class="btn btn-danger">Deletar</button></td>
+                
             </tr>
         }
     </tbody>

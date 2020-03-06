@@ -14384,6 +14384,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\EditarCategoria.cshtml",
+      "TargetPath": "Views\\Gestao\\EditarCategoria.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
