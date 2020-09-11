@@ -2,7 +2,7 @@ using System;
 
 namespace engSoftPDV.Models
 {
-    public class Produto
+    public class   Produto
     {
         public int Id { get; set; }
         public string Name {get; set;}
@@ -11,6 +11,7 @@ namespace engSoftPDV.Models
         public float PrecoDeCusto {get; set;}
         public float PrecoDeVenda {get; set;}
         public int Medicao {get; set;}
+        public int Porcentagem {get; set;}        
         public bool Status {get; set;}
 
 

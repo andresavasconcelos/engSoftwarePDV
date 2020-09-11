@@ -9,8 +9,8 @@ using engSoftPDV.Data;
 namespace engSoftPDV.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200223210941_CreateIdentitySchema")]
-    partial class CreateIdentitySchema
+    [Migration("20200824225540_CreateengSoftPDV")]
+    partial class CreateengSoftPDV
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -215,6 +215,149 @@ namespace engSoftPDV.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("engSoftPDV.Models.Categoria", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categorias");
+                });
+
+            modelBuilder.Entity("engSoftPDV.Models.Estoque", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProsutoId")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Quantidade")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProsutoId");
+
+                    b.ToTable("Estoques");
+                });
+
+            modelBuilder.Entity("engSoftPDV.Models.Fornecedor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Tel")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fornecedores");
+                });
+
+            modelBuilder.Entity("engSoftPDV.Models.Produto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CategoriaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FornecedorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Medicao")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<float>("PrecoDeCusto")
+                        .HasColumnType("float");
+
+                    b.Property<float>("PrecoDeVenda")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriaId");
+
+                    b.HasIndex("FornecedorId");
+
+                    b.ToTable("Produtos");
+                });
+
+            modelBuilder.Entity("engSoftPDV.Models.Saida", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<float>("PrecoDeVenda")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<float>("ValorDaVenda")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("Saidas");
+                });
+
+            modelBuilder.Entity("engSoftPDV.Models.Venda", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<float>("Total")
+                        .HasColumnType("float");
+
+                    b.Property<float>("Troco")
+                        .HasColumnType("float");
+
+                    b.Property<float>("ValorPago")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Vendas");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -264,6 +407,31 @@ namespace engSoftPDV.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("engSoftPDV.Models.Estoque", b =>
+                {
+                    b.HasOne("engSoftPDV.Models.Produto", "Prosuto")
+                        .WithMany()
+                        .HasForeignKey("ProsutoId");
+                });
+
+            modelBuilder.Entity("engSoftPDV.Models.Produto", b =>
+                {
+                    b.HasOne("engSoftPDV.Models.Categoria", "Categoria")
+                        .WithMany()
+                        .HasForeignKey("CategoriaId");
+
+                    b.HasOne("engSoftPDV.Models.Fornecedor", "Fornecedor")
+                        .WithMany()
+                        .HasForeignKey("FornecedorId");
+                });
+
+            modelBuilder.Entity("engSoftPDV.Models.Saida", b =>
+                {
+                    b.HasOne("engSoftPDV.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId");
                 });
 #pragma warning restore 612, 618
         }

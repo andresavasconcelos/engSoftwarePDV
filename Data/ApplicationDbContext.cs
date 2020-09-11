@@ -12,6 +12,7 @@ namespace engSoftPDV.Data
         public DbSet<Categoria> Categorias {get; set;} // seguir essa ordem porque existe tabelas que dependem uma da outra
         public DbSet<Estoque> Estoques {get; set;}
         public DbSet<Fornecedor> Fornecedores {get; set;}
+        public DbSet<Produto> Promocoes {get; set;}
         public DbSet<Produto> Produtos {get; set;}
         public DbSet<Saida> Saidas {get; set;}
         public DbSet<Venda> Vendas {get; set;}

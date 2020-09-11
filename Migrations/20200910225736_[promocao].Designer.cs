@@ -9,8 +9,8 @@ using engSoftPDV.Data;
 namespace engSoftPDV.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200224002856_AtualizarCategoria")]
-    partial class AtualizarCategoria
+    [Migration("20200910225736_[promocao]")]
+    partial class promocao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -263,6 +263,9 @@ namespace engSoftPDV.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Tel")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
@@ -289,6 +292,9 @@ namespace engSoftPDV.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<int>("Porcentagem")
+                        .HasColumnType("int");
+
                     b.Property<float>("PrecoDeCusto")
                         .HasColumnType("float");
 
@@ -304,7 +310,7 @@ namespace engSoftPDV.Migrations
 
                     b.HasIndex("FornecedorId");
 
-                    b.ToTable("Produtos");
+                    b.ToTable("Produto");
                 });
 
             modelBuilder.Entity("engSoftPDV.Models.Saida", b =>

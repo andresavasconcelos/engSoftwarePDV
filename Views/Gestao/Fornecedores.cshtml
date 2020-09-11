@@ -1,6 +1,46 @@
+@model IEnumerable<engSoftPDV.Models.Fornecedor>  //recebo um objeto do tipo categoria DTO*@
 @{
     Layout = "_LayoutAdmin";
 }
+
+<script>
+    $(document).ready(function () {
+        $('#fornecedores').DataTable();
+    });
+</script>
+
 <h2>Fornecedores</h2>
-<a asp-action="NovoFornecedor" asp-controller="Gestao" class= "btn btn-success">Criar Novo Fornecedor</a>
-<hr>
+<hr />
+<a asp-action="NovoFornecedor" asp-controller="Gestao" class="btn btn-success">Criar Novo Fornecedor</a>
+<hr />
+
+
+<table id="fornecedores" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fornecedor in Model)
+        {
+            <tr>
+                <td>@fornecedor.Id</td>
+                <td>@fornecedor.Name</td>
+                <td>@fornecedor.Email</td>
+                <td>@fornecedor.Tel</td>
+                <td>
+                    <a class="btn btn-primary" href="/Gestao/EditarFornecedor/@fornecedor.Id">Editar</a>
+                    <form asp-action="Deletar" asp-controller="Fornecedores" style="display: inline;">
+                        <input type="hidden" name="id" id="id" value="@fornecedor.Id">
+                        <button class="btn btn-danger">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using engSoftPDV.Data;
 using engSoftPDV.DTO;
 using engSoftPDV.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace engSoftPDV.Controllers
 {
@@ -34,6 +35,51 @@ namespace engSoftPDV.Controllers
                 ViewBag.Categorias = database.Categorias.ToList(); //buscar todas em uma categoria e trnsformando em uma lista
                 ViewBag.Fornecedores = database.Fornecedores.ToList(); 
                 return View("../Gestao/NovoProduto");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Atualizar(ProdutoDTO produtoTemporario){
+            if(ModelState.IsValid){
+                var produto = database.Produtos.First(prod => prod.Id == produtoTemporario.Id);
+                produto.Name = produtoTemporario.Name;
+                produto.PrecoDeCusto = produtoTemporario.PrecoDeCusto;
+                produto.PrecoDeVenda = produtoTemporario.PrecoDeVenda;
+                produto.Medicao = produtoTemporario.Medicao;
+                produto.Categoria = database.Categorias.First(categoria => categoria.Id == produtoTemporario.Id);
+                produto.Fornecedor = database.Fornecedores.First(fornecedor => fornecedor.Id == produtoTemporario.Id);
+                database.SaveChanges();
+                return RedirectToAction("Produtos", "Gestao");
+           } else {
+               return RedirectToAction("Produtos", "Gestao");
+           }
+        }
+
+        [HttpPost]
+        public IActionResult Deletar(int id){
+            if(id > 0){
+                var produto = database.Produtos.First(prod => prod.Id == id);
+                produto.Status = false;
+                database.SaveChanges();
+            } 
+
+            return RedirectToAction("Produtos", "Gestao");
+        }
+
+        [HttpPost]
+        public IActionResult Produto(int id){
+            if(id > 0){
+                var produto = database.Produtos.Where(prod => prod.Status == true).Include(prod => prod.Categoria).Include(prod => prod.Fornecedor).First(prod => prod.Id == id);
+                if(produto != null){
+                    Response.StatusCode = 200;
+                    return Json(produto);
+                } else {
+                    Response.StatusCode = 404;
+                    return Json(null);
+                } 
+            }else {
+                    Response.StatusCode = 404;
+                    return Json(null);
             }
         }
     }

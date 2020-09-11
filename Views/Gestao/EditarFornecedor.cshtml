@@ -3,9 +3,9 @@
 @{
     Layout = "_LayoutAdmin";
 }
-<h3>Nome do Fornecedor</h3>
+<h3>Editar do Fornecedor</h3>
 <hr>
-<form class="form-horizontal" asp-controller="Fornecedores" asp-action="Salvar" method="POST" >
+<form class="form-horizontal" asp-controller="Fornecedores" asp-action="Atualizar" method="POST" >
     <input type="hidden" asp-for="Id"> @* não aparece, mas é requerido *@ 
     
     <label asp-for="Name">Nome</label>

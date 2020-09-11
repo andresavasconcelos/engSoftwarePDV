@@ -290,6 +290,9 @@ namespace engSoftPDV.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<int>("Porcentagem")
+                        .HasColumnType("int");
+
                     b.Property<float>("PrecoDeCusto")
                         .HasColumnType("float");
 
@@ -305,7 +308,7 @@ namespace engSoftPDV.Migrations
 
                     b.HasIndex("FornecedorId");
 
-                    b.ToTable("Produtos");
+                    b.ToTable("Produto");
                 });
 
             modelBuilder.Entity("engSoftPDV.Models.Saida", b =>

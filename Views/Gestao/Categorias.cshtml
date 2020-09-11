@@ -1,16 +1,18 @@
-@model IEnumerable<engSoftPDV.Models.Categoria> // recebo um objeto do tipo categoria DTO
+@model IEnumerable<engSoftPDV.Models.Categoria>  //recebo um objeto do tipo categoria DTO*@
 @{
     Layout = "_LayoutAdmin";
 }
-<h2>Categorias</h2>
-<a asp-action="NovaCategoria" asp-controller="Gestao" class= "btn btn-success">Criar Nova Categoria</a>
-<hr>
 
 <script>
-    $(document).ready( function () {
-    $('#categorias').DataTable();
-} );
+    $(document).ready(function () {
+        $('#categorias').DataTable();
+    });
 </script>
+
+<h2>Categorias</h2>
+<hr />
+<a asp-action="NovaCategoria" asp-controller="Gestao" class="btn btn-success">Criar nova categorias</a>
+<hr />
 
 <table id="categorias" class="table table-striped table-bordered">
     <thead>
@@ -21,14 +23,19 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var categoria in Model){
+        @foreach (var categoria in Model)
+        {
             <tr>
                 <td>@categoria.Id</td>
                 <td>@categoria.Name</td>
-                <td><a href="/Gestao/EditarCategoria/@categoria.Id" class="btn btn-primary">Editar</a> <button class="btn btn-danger">Deletar</button></td>
-                
+                <td>
+                    <a class="btn btn-primary" href="/Gestao/EditarCategoria/@categoria.Id">Editar</a>
+                    <form asp-action="Deletar" asp-controller="Categorias" style="display: inline;">
+                        <input type="hidden" name="id" id="id" value="@categoria.Id">
+                        <button class="btn btn-danger">Deletar</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
 </table>
-

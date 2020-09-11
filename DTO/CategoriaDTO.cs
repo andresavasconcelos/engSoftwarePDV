@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace engSoftPDV.DTO
 {
-    public class CategoriaDTO //somente trabsmite dados
+    public class CategoriaDTO //somente transmite dados
     {
         [Required] //estamos fazendo uma validação de informações requeridas pelo usuário
         public int Id {get; set;}

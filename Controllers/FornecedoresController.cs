@@ -1,8 +1,9 @@
 using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using engSoftPDV.Data;
 using engSoftPDV.DTO;
 using engSoftPDV.Models;
-using engSoftPDV.Data;
 
 namespace engSoftPDV.Controllers
 {
@@ -28,6 +29,30 @@ namespace engSoftPDV.Controllers
            }else {
                return View("../Gestao/NovoFornecedor");
            }
+        }
+
+        [HttpPost]
+        public IActionResult Atualizar(FornecedorDTO fornecedorTemporario){
+            if(ModelState.IsValid){
+                var fornecedor = database.Fornecedores.First(forne => forne.Id == fornecedorTemporario.Id);
+                fornecedor.Name = fornecedorTemporario.Name;
+                fornecedor.Email = fornecedorTemporario.Email;
+                fornecedor.Tel = fornecedorTemporario.Tel;
+                database.SaveChanges();
+                return RedirectToAction("Fornecedores","Gestao");
+            }else{
+                return View("../Gestao/EditarFornecedor");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Deletar(int id){
+            if(id > 0){
+                var fornecedor = database.Fornecedores.First(forne => forne.Id == id);
+                fornecedor.Status = false;
+                database.SaveChanges();
+            }
+            return RedirectToAction("Fornecedores","Gestao");
         }
     }
 }
