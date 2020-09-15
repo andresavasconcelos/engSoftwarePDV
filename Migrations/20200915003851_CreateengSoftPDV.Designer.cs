@@ -9,7 +9,7 @@ using engSoftPDV.Data;
 namespace engSoftPDV.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200824225540_CreateengSoftPDV")]
+    [Migration("20200915003851_CreateengSoftPDV")]
     partial class CreateengSoftPDV
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -238,7 +238,7 @@ namespace engSoftPDV.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProsutoId")
+                    b.Property<int?>("ProdutoId")
                         .HasColumnType("int");
 
                     b.Property<float>("Quantidade")
@@ -246,7 +246,7 @@ namespace engSoftPDV.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProsutoId");
+                    b.HasIndex("ProdutoId");
 
                     b.ToTable("Estoques");
                 });
@@ -292,6 +292,9 @@ namespace engSoftPDV.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<int>("Porcentagem")
+                        .HasColumnType("int");
+
                     b.Property<float>("PrecoDeCusto")
                         .HasColumnType("float");
 
@@ -308,6 +311,31 @@ namespace engSoftPDV.Migrations
                     b.HasIndex("FornecedorId");
 
                     b.ToTable("Produtos");
+                });
+
+            modelBuilder.Entity("engSoftPDV.Models.Promocao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<float>("Porcentagem")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("Promocoes");
                 });
 
             modelBuilder.Entity("engSoftPDV.Models.Saida", b =>
@@ -411,9 +439,9 @@ namespace engSoftPDV.Migrations
 
             modelBuilder.Entity("engSoftPDV.Models.Estoque", b =>
                 {
-                    b.HasOne("engSoftPDV.Models.Produto", "Prosuto")
+                    b.HasOne("engSoftPDV.Models.Produto", "Produto")
                         .WithMany()
-                        .HasForeignKey("ProsutoId");
+                        .HasForeignKey("ProdutoId");
                 });
 
             modelBuilder.Entity("engSoftPDV.Models.Produto", b =>
@@ -425,6 +453,13 @@ namespace engSoftPDV.Migrations
                     b.HasOne("engSoftPDV.Models.Fornecedor", "Fornecedor")
                         .WithMany()
                         .HasForeignKey("FornecedorId");
+                });
+
+            modelBuilder.Entity("engSoftPDV.Models.Promocao", b =>
+                {
+                    b.HasOne("engSoftPDV.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId");
                 });
 
             modelBuilder.Entity("engSoftPDV.Models.Saida", b =>

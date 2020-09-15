@@ -211,6 +211,7 @@ namespace engSoftPDV.Migrations
                     PrecoDeCusto = table.Column<float>(nullable: false),
                     PrecoDeVenda = table.Column<float>(nullable: false),
                     Medicao = table.Column<int>(nullable: false),
+                    Porcentagem = table.Column<int>(nullable: false),
                     Status = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -236,15 +237,37 @@ namespace engSoftPDV.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ProsutoId = table.Column<int>(nullable: true),
+                    ProdutoId = table.Column<int>(nullable: true),
                     Quantidade = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Estoques", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Estoques_Produtos_ProsutoId",
-                        column: x => x.ProsutoId,
+                        name: "FK_Estoques_Produtos_ProdutoId",
+                        column: x => x.ProdutoId,
+                        principalTable: "Produtos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Promocoes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    ProdutoId = table.Column<int>(nullable: true),
+                    Porcentagem = table.Column<float>(nullable: false),
+                    Status = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Promocoes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Promocoes_Produtos_ProdutoId",
+                        column: x => x.ProdutoId,
                         principalTable: "Produtos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -310,9 +333,9 @@ namespace engSoftPDV.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Estoques_ProsutoId",
+                name: "IX_Estoques_ProdutoId",
                 table: "Estoques",
-                column: "ProsutoId");
+                column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Produtos_CategoriaId",
@@ -323,6 +346,11 @@ namespace engSoftPDV.Migrations
                 name: "IX_Produtos_FornecedorId",
                 table: "Produtos",
                 column: "FornecedorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Promocoes_ProdutoId",
+                table: "Promocoes",
+                column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Saidas_ProdutoId",
@@ -349,6 +377,9 @@ namespace engSoftPDV.Migrations
 
             migrationBuilder.DropTable(
                 name: "Estoques");
+
+            migrationBuilder.DropTable(
+                name: "Promocoes");
 
             migrationBuilder.DropTable(
                 name: "Saidas");

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace engSoftPDV.DTO
 {
-    public class PromocaoDTO //somente trabsmite dados
+    public class PromocaoDTO //somente transsmite dados
     {
         [Required]
         public int Id{get; set;}

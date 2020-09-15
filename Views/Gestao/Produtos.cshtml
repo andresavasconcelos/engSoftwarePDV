@@ -19,6 +19,11 @@
         <tr>
             <th>Id</th>
             <th>Nome</th>
+            <th>Categoria</th>
+            <th>Fornecedor</th>
+            <th>Preço de custo</th>
+            <th>Preço de venda</th>
+            <th>Medição </th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -28,10 +33,23 @@
             <tr>
                 <td>@produto.Id</td>
                 <td>@produto.Name</td>
+                <td>@produto.Categoria.Name</td>
+                <td>@produto.Fornecedor.Name</td>
+                <td>@produto.PrecoDeCusto</td>
+                <td>@produto.PrecoDeVenda</td>
                 <td>
-                    <a class="btn btn-primary" href="/Gestao/EditarProduto/@produto.Id">Editar</a>
-                    <form asp-action="Deletar" asp-controller="Produtos" style="display: inline;">
-                        <input type="hidden" name="id" id="id" value="@produto.Id">
+                    @if(@produto.Medicao == 0){
+                        <span>Litro</span>
+                    } else if(@produto.Medicao == 1){
+                        <span>Kilo</span>
+                    } else{
+                        <span>Unidade</span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-primary" >Editar</a>
+                    <form style="display: inline;">
+                        <input type="hidden" name="id" id="id">
                         <button class="btn btn-danger">Deletar</button>
                     </form>
                 </td>

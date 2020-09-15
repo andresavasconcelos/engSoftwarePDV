@@ -55,7 +55,7 @@ namespace engSoftPDV.Controllers
         }
 
         public IActionResult Produtos(){
-            var produtos = database.Produtos.Where(prod => prod.Status == true).ToList();            
+            var produtos = database.Produtos.Include(p => p.Categoria).Include(p => p.Fornecedor).ToList();            
             return View(produtos);
         }
 
@@ -80,15 +80,25 @@ namespace engSoftPDV.Controllers
             return View(produtoView);
         }
 
-        public IActionResult Promocoes(int id){
-            //var promocao = database.Produtos.Where(promo => promo.Id == id).ToList()
-            //return View(promocao);
-            return View();
+        public IActionResult Promocoes(){
+           var promocoes = database.Promocoes.Include(p => p.Produto).Where(i => i.Status == true).ToList();
+            return View(promocoes);
         }
 
         public IActionResult NovaPromocao(int id){
             ViewBag.Produtos = database.Produtos.ToList();
             return View();
+        }
+
+         public IActionResult EditarPromocao(int id){
+            var promocao = database.Promocoes.Include(p => p.Produto).First(p => p.Id == id);
+            PromocaoDTO promo = new PromocaoDTO();
+            promo.Id = promocao.Id;
+            promo.Name = promocao.Name;
+            promo.Porcentagem = promocao.Porcentagem;
+            promo.ProdutoID = promocao.Produto.Id;
+            ViewBag.Produtos = database.Produtos.ToList();
+            return View(promo);
         }
 
     }
