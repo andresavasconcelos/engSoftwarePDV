@@ -12,7 +12,7 @@
     <input type="text" asp-for="Name" class="form-control" placeholder="Nome da promoção">
     <span asp-validation-for="Name"></span><br>
     <label asp-for="ProdutoID">Produto</label>
-    <select class="form-control" asp-for="ProdutoID" asp-items='@(new SelectList(@ViewBag.Produtos,"Id","Nome"))'></select>
+    <select class="form-control" asp-for="ProdutoID" asp-items='@(new SelectList(@ViewBag.Produtos,"Id","Name"))'></select>
     <br>
     <label asp-for="Porcentagem">Porcentagem</label><br>
     <input type="number" min="0" max="100" asp-for="Porcentagem" placeholder="10%" class="form-control"><br>

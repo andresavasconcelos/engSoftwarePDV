@@ -6,7 +6,7 @@
 <h3>Editar promoção</h3>
 <hr>
 
-<form class="form-horizontal" asp-controller="Promocao" asp-action="Salvar" method="POST" >
+<form method="POST" asp-controller="Promocoes" asp-action="Atualizar"  class="form-horizontal">
     <input type="hidden" asp-for="Id">  @* não aparece, mas é requerido *@ 
     
     <label asp-for="Name">Nome</label><br>
@@ -14,8 +14,9 @@
     <span asp-validation-for="Name"></span><br>
     
     <label asp-for="ProdutoID">Produto</label><br>
-    <select class="form-control" asp-for="ProdutoID" asp-items='@(new SelectList(@ViewBag.Produto, "Id", "Name"))'></select>
-   <span asp-validation-for="ProdutoID"></span><br> @*cri uma lista das categorias e será atribuido nome*@
+    <select class="form-control" asp-for="ProdutoID" asp-items='@(new SelectList(@ViewBag.Produtos,"Id","Name"))'></select>
+
+    <span asp-validation-for="ProdutoID"></span><br> @*cri uma lista das categorias e será atribuido nome*@
 
     <label asp-for="Porcentagem">Porcentagem</label><br>
     <input type="number" min="0" max="100" asp-for="Porcentagem" placeholder="10%" class="form-control">

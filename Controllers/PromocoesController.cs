@@ -32,7 +32,32 @@ namespace engSoftPDV.Controllers
             }
 
         }
+
+        [HttpPost]
+        public IActionResult Atualizar(PromocaoDTO promocaoTemporaria){
+            if(ModelState.IsValid){
+                var promocao = database.Promocoes.First(p => p.Id == promocaoTemporaria.Id); 
+                promocao.Name = promocaoTemporaria.Name;
+                promocao.Porcentagem = promocaoTemporaria.Porcentagem;
+                promocao.Status = true;
+                promocao.Produto = database.Produtos.First(prod => prod.Id == promocaoTemporaria.ProdutoID);
+                database.SaveChanges();
+                return RedirectToAction("Promocoes", "Gestao");              
+            } else {
+                return RedirectToAction("Promocoes", "Gestao");      
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Deletar(int id){
+            if(id > 0){
+                var promocao = database.Promocoes.First(p => p.Id == id);
+                promocao.Status = false;
+                database.SaveChanges();
+            }
+            return RedirectToAction("Promocoes", "Gestao");
+        }
     }
 
-               
-    }
+            
+}

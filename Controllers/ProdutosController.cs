@@ -65,6 +65,7 @@ namespace engSoftPDV.Controllers
 
             return RedirectToAction("Produtos", "Gestao");
         }
+   
 
         [HttpPost]
         public IActionResult Produto(int id){
@@ -82,5 +83,7 @@ namespace engSoftPDV.Controllers
                     return Json(null);
             }
         }
+
+        
     }
 }
