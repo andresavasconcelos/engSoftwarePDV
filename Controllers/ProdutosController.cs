@@ -55,7 +55,6 @@ namespace engSoftPDV.Controllers
            }
         }
 
-        [HttpPost]
         public IActionResult Deletar(int id){
             if(id > 0){
                 var produto = database.Produtos.First(prod => prod.Id == id);
@@ -65,25 +64,11 @@ namespace engSoftPDV.Controllers
 
             return RedirectToAction("Produtos", "Gestao");
         }
-   
+      
 
-        [HttpPost]
-        public IActionResult Produto(int id){
-            if(id > 0){
-                var produto = database.Produtos.Where(prod => prod.Status == true).Include(prod => prod.Categoria).Include(prod => prod.Fornecedor).First(prod => prod.Id == id);
-                if(produto != null){
-                    Response.StatusCode = 200;
-                    return Json(produto);
-                } else {
-                    Response.StatusCode = 404;
-                    return Json(null);
-                } 
-            }else {
-                    Response.StatusCode = 404;
-                    return Json(null);
-            }
-        }
-
-        
+         [HttpPost]
+        public IActionResult Retornar(int id){
+            return Json("Olá mundo");            
+        }  
     }
 }

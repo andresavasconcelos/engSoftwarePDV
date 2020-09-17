@@ -1,16 +1,11 @@
-// console.log("Olá Mundo");
-// console.log($);
-
 /*Declaração de Variáveis */
-
-var enderecoProduto = "https://localhost:5001/Gestao/Produtos/Produto/";
-
+var enderecoProduto = "https://localhost:5001/Gestao/Produtos/Retornar/1";
 /* */
 
 $("#pesquisar").click(function(){
-    var codProduto = $("#codProduto").val(); 
-    var enderecoTemporario = enderecoProduto+codProduto;
-    $.post(enderecoTemporario, function(dados, status){
-        alert("Dados:" + dados + "Status: " + status);
+    $.post(enderecoProduto, function(dados, status){
+        alert("Dados: " + dados + "Status: " + status);
     });
 });
+
+
