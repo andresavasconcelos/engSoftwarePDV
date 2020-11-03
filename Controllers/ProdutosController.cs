@@ -65,10 +65,26 @@ namespace engSoftPDV.Controllers
             return RedirectToAction("Produtos", "Gestao");
         }
       
-
          [HttpPost]
-        public IActionResult Retornar(int id){
-            return Json("Olá mundo");            
-        }  
+        public JsonResult Retornar(int id){
+             if(id > 0){
+                var produto = database.Produtos.Where(p => p.Status == true).Include(p => p.Categoria).Include(p => p.Fornecedor).First(p => p.Id == id);
+                if(produto != null){
+                    Response.StatusCode = 200; //OK
+                    return Json(produto);
+                }else{
+                    Response.StatusCode = 404; // Falha
+                    return Json(null);
+                }
+            }else{
+                Response.StatusCode = 404; // Falha
+                return Json(null);
+            }
+        }
+
+        //  [HttpPost]
+        // public IActionResult Retornar(int id){
+        //     return Json("Olá mundo");            
+        // }  
     }
 }

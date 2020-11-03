@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\engSoftPDV.csproj": {}
+    "C:\\Users\\andre\\Documents\\UFABC\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\engSoftPDV.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\engSoftPDV.csproj": {
+    "C:\\Users\\andre\\Documents\\UFABC\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\engSoftPDV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\engSoftPDV.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\Documents\\UFABC\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\engSoftPDV.csproj",
         "projectName": "engSoftPDV",
-        "projectPath": "C:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\engSoftPDV.csproj",
+        "projectPath": "C:\\Users\\andre\\Documents\\UFABC\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\engSoftPDV.csproj",
         "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\Documents\\ufabc\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\obj\\",
+        "outputPath": "C:\\Users\\andre\\Documents\\UFABC\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
