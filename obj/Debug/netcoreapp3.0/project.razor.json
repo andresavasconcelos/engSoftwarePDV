@@ -10200,6 +10200,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\andre\\Documents\\UFABC\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\NovoEstoque.cshtml",
+      "TargetPath": "Views\\Gestao\\NovoEstoque.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\andre\\Documents\\UFABC\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\Fornecedores.cshtml",
       "TargetPath": "Views\\Gestao\\Fornecedores.cshtml",
       "FileKind": "mvc"
@@ -10242,6 +10247,11 @@
     {
       "FilePath": "c:\\Users\\andre\\Documents\\UFABC\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\Promocoes.cshtml",
       "TargetPath": "Views\\Gestao\\Promocoes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\andre\\Documents\\UFABC\\Q1_2020\\Eng Sofware\\projeto1\\engSoftPDV\\Views\\Gestao\\Estoque.cshtml",
+      "TargetPath": "Views\\Gestao\\Estoque.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -1,0 +1,15 @@
+@model engSoftPDV.Models.Estoque;
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Nome do Estoque</h3>
+<hr>
+<form class="form-horizontal" >
+    <label asp-for="Produto">Produto</label>
+    <select class="form-control" asp-for="Produto" asp-items='@(new SelectList(@ViewBag.Produtos,"Id","Name"))'></select>
+    <br>
+    <label asp-for="Quantidade">Quantidade</label>
+    <input asp-for="Quantidade" placeholder="1000" class="form-control">
+    <br>
+<button class="btn btn-success">Cadastrar</button> 
+</form>
