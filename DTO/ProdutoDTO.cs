@@ -26,6 +26,10 @@ namespace engSoftPDV.DTO
 
         [Required(ErrorMessage="Favor inserir a medicao do produto")]
         [Range(0,2, ErrorMessage="Medição Inválida")] //representa litro ou kilo  
+        public string PrecoDeVendaString {get; set;}
+        [Required(ErrorMessage="Medição do produto é obrigatória")]
+        [Range(0,2,ErrorMessage="Medição inválida")]
+
         public int Medicao {get; set;}      
     }
 }

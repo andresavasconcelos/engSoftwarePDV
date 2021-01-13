@@ -2,14 +2,12 @@
 @{
     Layout = "_LayoutAdmin";
 }
-<h3>Nome do Estoque</h3>
-<hr>
-<form class="form-horizontal" >
+<h3>Novo estoque</h3>
+<hr/>
+<form class="form-horizontal" method="POST" asp-controller="Estoque" asp-action="Salvar">
     <label asp-for="Produto">Produto</label>
-    <select class="form-control" asp-for="Produto" asp-items='@(new SelectList(@ViewBag.Produtos,"Id","Name"))'></select>
-    <br>
+    <select class="form-control" asp-for="ProdutoId" asp-items='@(new SelectList(@ViewBag.Produtos,"Id","Name"))'></select>
     <label asp-for="Quantidade">Quantidade</label>
-    <input asp-for="Quantidade" placeholder="1000" class="form-control">
-    <br>
-<button class="btn btn-success">Cadastrar</button> 
+    <input asp-for="Quantidade" placeholder="100" class="form-control"><br>
+ <button class="btn btn-success">Cadastrar</button>
 </form>

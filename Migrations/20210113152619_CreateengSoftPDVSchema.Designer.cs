@@ -9,8 +9,8 @@ using engSoftPDV.Data;
 namespace engSoftPDV.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200915003851_CreateengSoftPDV")]
-    partial class CreateengSoftPDV
+    [Migration("20210113152619_CreateengSoftPDVSchema")]
+    partial class CreateengSoftPDVSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -238,7 +238,7 @@ namespace engSoftPDV.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProdutoId")
+                    b.Property<int>("ProdutoId")
                         .HasColumnType("int");
 
                     b.Property<float>("Quantidade")
@@ -441,7 +441,9 @@ namespace engSoftPDV.Migrations
                 {
                     b.HasOne("engSoftPDV.Models.Produto", "Produto")
                         .WithMany()
-                        .HasForeignKey("ProdutoId");
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("engSoftPDV.Models.Produto", b =>

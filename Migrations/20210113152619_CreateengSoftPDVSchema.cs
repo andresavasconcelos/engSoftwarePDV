@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace engSoftPDV.Migrations
 {
-    public partial class CreateengSoftPDV : Migration
+    public partial class CreateengSoftPDVSchema : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -238,7 +238,7 @@ namespace engSoftPDV.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ProdutoId = table.Column<int>(nullable: true),
-                    Quantidade = table.Column<float>(nullable: false)
+                    Quantidade = table.Column<float>(nullable: false),
                 },
                 constraints: table =>
                 {

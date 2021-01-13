@@ -1,5 +1,3 @@
-using System;
-
 namespace engSoftPDV.Models
 {
     public class   Produto
