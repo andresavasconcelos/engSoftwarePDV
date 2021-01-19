@@ -18,13 +18,13 @@
     <label asp-for="FornecedorId">Fornecedor</label>
     <select class="form-control" asp-for="FornecedorId" asp-items='@(new SelectList(@ViewBag.Fornecedores, "Id", "Name"))'></select><br>
     
-    <label asp-for="PrecoDeCusto" >Preço de Custo</label>
-    <input class="form-control" asp-for="PrecoDeCusto" type="number" step="any" placeholder="Digite o preço de custo"> @*type number é caracterizado como um numero inteiro, mas como é um numero decimal colocamos esse step para definirmos como um numero natural*@
-    <span asp-validation-for="PrecoDeCusto"></span><br>
+    <label asp-for="PrecoDeCustoString" >Preço de Custo</label>
+    <input class="form-control" asp-for="PrecoDeCustoString" type="text" step="any" placeholder="Digite o preço de custo"> @*type number é caracterizado como um numero inteiro, mas como é um numero decimal colocamos esse step para definirmos como um numero natural*@
+    <span asp-validation-for="PrecoDeCustoString"></span><br>
 
-    <label asp-for="PrecoDeVenda" >Preço de Venda</label>
-    <input class="form-control" asp-for="PrecoDeVenda" type="number" step="any" placeholder="Digite o preço de venda"> @*type number é caracterizado como um numero inteiro, mas como é um numero decimal colocamos esse step para definirmos como um numero natural*@
-    <span asp-validation-for="PrecoDeVenda"></span><br>
+    <label asp-for="PrecoDeVendaString" >Preço de Venda</label>
+    <input class="form-control" asp-for="PrecoDeVendaString" type="text" step="any" placeholder="Digite o preço de venda"> @*type number é caracterizado como um numero inteiro, mas como é um numero decimal colocamos esse step para definirmos como um numero natural*@
+    <span asp-validation-for="PrecoDeVendaString"></span><br>
 
     <label asp-for="Medicao" >Medição</label>
     <select class="form-control" asp-for="Medicao">

@@ -3,6 +3,14 @@
 var enderecoProduto = "https://localhost:5001/Produtos/Retornar/";
 var produto;
 var compra = [];
+var __totalVenda__ = 0.0;
+
+/*Inicio*/ 
+
+
+function atualizarTotal(){
+    $("#totalVenda").html(__totalVenda__);
+}
 
 /* Funções */
 function preencherFormulario(dadosProdutos){
@@ -26,6 +34,12 @@ function adicionandoNaTabela(prod, quant){
     var produtoTemp = {};
 
     Object.assign(produtoTemp, produto);
+
+    var venda = {produto: produtoTemp, quantidade: quant, subtotal: produtoTemp.precodeVenda * quant};
+
+    __totalVenda__ += venda.subtotal;
+    atualizarTotal();
+    
     compra.push(produtoTemp);
     $("#compras").append(`<tr>
         <td>${prod.id}</td>
@@ -81,3 +95,49 @@ $("#pesquisar").click(function(){
         alert("Produto inválido!")
     });
 });
+
+    /*Finalização de venda */
+
+    $("#FinalizarVendaBTN").click(function (){
+        if(__totalVenda__ <= 0)
+        {
+            alert("Compra inválida, nenhuma produto adicionado");
+            return;
+        }
+
+        var _valorPago = $("#valorPago").val();
+    console.log(typeof _valorPago);
+    if(!isNaN(_valorPago)){
+
+        _valorPago = parseFloat(_valorPago);
+
+        if(_valorPago >= __totalVenda__){
+
+            $("#posvenda").show();
+            $("#prevenda").hide(); 
+            $("#valorPago").prop("disabled",true);
+            
+            var _troco = _valorPago - __totalVenda__;
+            $("#troco").val(_troco);   
+        
+        }else{
+            alert("Valor pago é muito baixo!");
+            return;
+        }
+    }else{
+        alert("Valor pago, inválido!");
+        return;
+    }
+});
+
+function restaurarModal(){
+    $("#posvenda").hide();
+    $("#prevenda").show(); 
+    $("#valorPago").prop("disabled",false);
+    $("#troco").val("");
+    $("#valorPago").val(""); 
+}
+
+$("#fecharModal").click(function(){
+    restaurarModal();
+})

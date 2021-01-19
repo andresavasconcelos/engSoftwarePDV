@@ -19,16 +19,18 @@ namespace engSoftPDV.DTO
         public int FornecedorId {get; set;}
 
         [Required(ErrorMessage="Favor inserir o preço de custo do produto")]
-        public float PrecoDeCusto {get; set;}
-
+        public string PrecoDeCustoString {get; set;}
         [Required(ErrorMessage="Favor inserir o preço de venda do produto")]
-        public float PrecoDeVenda {get; set;}
 
-        [Required(ErrorMessage="Favor inserir a medicao do produto")]
-        [Range(0,2, ErrorMessage="Medição Inválida")] //representa litro ou kilo  
+        public float PrecoDeCusto {get; set;}
+        [Required(ErrorMessage="Favor inserir o preço de venda do produto")]
+
+        public float PrecoDeVenda {get; set;}
+       [Required(ErrorMessage="Preço de venda do produto é obrigatório")]
         public string PrecoDeVendaString {get; set;}
-        [Required(ErrorMessage="Medição do produto é obrigatória")]
-        [Range(0,2,ErrorMessage="Medição inválida")]
+        [Required(ErrorMessage="Favor inserir a medicao do produto")]
+        [Range(0,2, ErrorMessage="Medição Inválida")] //representa litro ou kilo 
+        
 
         public int Medicao {get; set;}      
     }
